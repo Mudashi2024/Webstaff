@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Elgon Shine – Shine Bright | Mbale City</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Cinzel:wght@400;600;700;900&family=Raleway:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--gold:#f0c040;--gold-light:#ffe080;--gold-dark:#b08010;--navy:#0d1b3e;--navy-mid:#162550;--navy-light:#1e3470;--silver:#c8d8f0;--white:#f8f9ff;--dark:#080e1e;--text:#ccdaee;--text-dim:#7890b8}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--dark);color:var(--text);font-family:'Raleway',sans-serif;overflow-x:hidden;cursor:none}
+.cursor{width:12px;height:12px;background:var(--gold);border-radius:50%;position:fixed;top:0;left:0;pointer-events:none;z-index:9999;transform:translate(-50%,-50%);mix-blend-mode:difference}
+.cursor-ring{width:36px;height:36px;border:1.5px solid rgba(240,192,64,.5);border-radius:50%;position:fixed;top:0;left:0;pointer-events:none;z-index:9998;transform:translate(-50%,-50%);transition:transform .25s ease,width .3s,height .3s}
+body::before{content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.04'/%3E%3C/svg%3E");pointer-events:none;z-index:1000;opacity:.35}
+nav{position:fixed;top:0;left:0;right:0;z-index:500;padding:0 5%;display:flex;align-items:center;justify-content:space-between;height:72px;background:linear-gradient(180deg,rgba(8,14,30,.98),rgba(8,14,30,.7));backdrop-filter:blur(16px);border-bottom:1px solid rgba(240,192,64,.12);transition:all .4s}
+nav.scrolled{background:rgba(8,14,30,.99);border-bottom-color:rgba(240,192,64,.25);box-shadow:0 8px 40px rgba(0,0,0,.5)}
+.nav-logo{display:flex;align-items:center;gap:12px;text-decoration:none}
+.nav-logo img{height:48px;filter:drop-shadow(0 0 8px rgba(240,192,64,.4))}
+.nav-brand{font-family:'Bebas Neue',sans-serif;font-size:1.3rem;color:var(--gold);letter-spacing:3px;display:block}
+.nav-tagline{font-size:.52rem;letter-spacing:2.5px;color:var(--text-dim);text-transform:uppercase;font-weight:600;display:block}
+.nav-links{display:flex;gap:32px;list-style:none}
+.nav-links a{font-size:.72rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--text-dim);text-decoration:none;position:relative;transition:color .3s}
+.nav-links a::after{content:'';position:absolute;bottom:-4px;left:0;width:0;height:1px;background:var(--gold);transition:width .3s}
+.nav-links a:hover{color:var(--gold)}
+.nav-links a:hover::after{width:100%}
+.nav-cta{background:linear-gradient(135deg,var(--gold-dark),var(--gold));color:var(--dark)!important;padding:8px 20px!important;border-radius:3px;font-weight:800!important;letter-spacing:1.5px!important}
+.nav-cta::after{display:none!important}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer}
+.hamburger span{width:24px;height:2px;background:var(--gold);border-radius:2px;transition:all .3s}
+.hero{min-height:100vh;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;padding:100px 5% 60px}
+.hero-bg{position:absolute;inset:0;background:radial-gradient(ellipse at 20% 50%,rgba(22,37,80,.8),transparent 60%),radial-gradient(ellipse at 80% 20%,rgba(176,128,16,.15),transparent 50%),linear-gradient(160deg,#060c1a,#0d1b3e 50%,#06101e)}
+.hero-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(240,192,64,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(240,192,64,.04) 1px,transparent 1px);background-size:60px 60px;animation:gridShift 20s linear infinite}
+@keyframes gridShift{0%{transform:perspective(800px) rotateX(15deg) translateY(0)}100%{transform:perspective(800px) rotateX(15deg) translateY(60px)}}
+.orb{position:absolute;border-radius:50%;filter:blur(60px);animation:orbFloat var(--dur,8s) ease-in-out infinite var(--delay,0s)}
+@keyframes orbFloat{0%,100%{transform:translate(0,0) scale(1)}33%{transform:translate(30px,-40px) scale(1.1)}66%{transform:translate(-20px,20px) scale(.9)}}
+.orb-1{width:400px;height:400px;background:rgba(240,192,64,.07);top:-10%;left:-5%;--dur:12s}
+.orb-2{width:300px;height:300px;background:rgba(30,52,112,.5);bottom:-5%;right:5%;--dur:9s;--delay:2s}
+.orb-3{width:200px;height:200px;background:rgba(240,192,64,.05);top:40%;right:20%;--dur:7s;--delay:4s}
+.hero-content{position:relative;z-index:10;max-width:1200px;width:100%;display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center}
+.hero-text{animation:fadeInLeft 1s ease both}
+@keyframes fadeInLeft{from{opacity:0;transform:translateX(-50px)}to{opacity:1;transform:translateX(0)}}
+.hero-eyebrow{display:inline-flex;align-items:center;gap:10px;font-size:.65rem;font-weight:700;letter-spacing:4px;text-transform:uppercase;color:var(--gold);margin-bottom:16px;opacity:.9}
+.hero-eyebrow::before{content:'';width:30px;height:1px;background:var(--gold)}
+.hero-title{font-family:'Cinzel',serif;font-size:clamp(2.8rem,6vw,5rem);font-weight:900;line-height:1.05;color:var(--white);margin-bottom:8px;text-shadow:0 0 60px rgba(240,192,64,.2)}
+.hero-title span{background:linear-gradient(135deg,var(--gold-light),var(--gold),var(--gold-dark));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.hero-subtitle{font-family:'Bebas Neue',sans-serif;font-size:clamp(1.2rem,3vw,1.8rem);letter-spacing:6px;color:var(--silver);margin-bottom:24px;opacity:.7}
+.hero-desc{font-size:.95rem;line-height:1.8;color:var(--text-dim);max-width:480px;margin-bottom:40px;font-weight:400}
+.hero-btns{display:flex;gap:16px;flex-wrap:wrap}
+.btn-primary{background:linear-gradient(135deg,var(--gold-dark),var(--gold));color:var(--dark);padding:14px 32px;font-family:'Raleway',sans-serif;font-size:.75rem;font-weight:800;letter-spacing:2px;text-transform:uppercase;text-decoration:none;border-radius:3px;border:none;cursor:pointer;transition:transform .3s,box-shadow .3s;box-shadow:0 6px 30px rgba(240,192,64,.3);display:inline-block}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 12px 40px rgba(240,192,64,.5)}
+.btn-outline{background:transparent;color:var(--gold);padding:14px 32px;font-family:'Raleway',sans-serif;font-size:.75rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;text-decoration:none;border-radius:3px;border:1px solid rgba(240,192,64,.4);cursor:pointer;transition:all .3s;display:inline-block}
+.btn-outline:hover{background:rgba(240,192,64,.1);border-color:var(--gold)}
+.hero-stats{display:flex;gap:32px;margin-top:48px}
+.stat{display:flex;flex-direction:column}
+.stat-num{font-family:'Bebas Neue',sans-serif;font-size:2rem;color:var(--gold);line-height:1}
+.stat-label{font-size:.6rem;letter-spacing:2px;text-transform:uppercase;color:var(--text-dim);font-weight:600}
+.hero-visual{display:flex;align-items:center;justify-content:center;animation:fadeInRight 1s ease .3s both;position:relative}
+@keyframes fadeInRight{from{opacity:0;transform:translateX(50px)}to{opacity:1;transform:translateX(0)}}
+.logo-stage{position:relative;width:420px;height:420px;display:flex;align-items:center;justify-content:center}
+.logo-ring{position:absolute;inset:0;animation:rotateSlow 20s linear infinite}
+@keyframes rotateSlow{to{transform:rotate(360deg)}}
+.logo-glow{position:absolute;inset:-20px;border-radius:50%;background:radial-gradient(circle,rgba(240,192,64,.15),transparent 70%);animation:glowPulse 3s ease-in-out infinite}
+@keyframes glowPulse{0%,100%{transform:scale(1);opacity:.7}50%{transform:scale(1.1);opacity:1}}
+.logo-main{position:relative;z-index:5;width:80%;filter:drop-shadow(0 0 40px rgba(240,192,64,.4)) drop-shadow(0 20px 60px rgba(0,0,0,.8));animation:logoFloat 5s ease-in-out infinite}
+@keyframes logoFloat{0%,100%{transform:translateY(0) rotate(-1deg)}50%{transform:translateY(-16px) rotate(1deg)}}
+.orbit-dot{position:absolute;width:8px;height:8px;background:var(--gold);border-radius:50%;box-shadow:0 0 12px var(--gold)}
+section{padding:100px 5%}
+.section-label{display:inline-flex;align-items:center;gap:12px;font-size:.62rem;font-weight:700;letter-spacing:4px;text-transform:uppercase;color:var(--gold);margin-bottom:12px}
+.section-label::before{content:'◆';font-size:.5rem}
+.section-title{font-family:'Cinzel',serif;font-size:clamp(2rem,4vw,3.2rem);font-weight:700;color:var(--white);line-height:1.2;margin-bottom:16px}
+.section-title span{color:var(--gold)}
+.section-desc{font-size:.92rem;line-height:1.8;color:var(--text-dim);max-width:560px}
+.section-header{margin-bottom:60px}
+.marquee-wrap{overflow:hidden;background:linear-gradient(90deg,var(--gold-dark),var(--gold),var(--gold-dark));padding:14px 0;border-top:1px solid rgba(240,192,64,.3);border-bottom:1px solid rgba(240,192,64,.3)}
+.marquee-track{display:flex;gap:60px;animation:marquee 25s linear infinite;white-space:nowrap}
+@keyframes marquee{to{transform:translateX(-50%)}}
+.marquee-item{font-family:'Bebas Neue',sans-serif;font-size:.9rem;letter-spacing:4px;color:var(--dark);display:flex;align-items:center;gap:20px}
+.marquee-dot{width:4px;height:4px;background:var(--dark);border-radius:50%;opacity:.5}
+.products{background:linear-gradient(180deg,var(--dark),rgba(13,27,62,.4) 50%,var(--dark))}
+.products-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:28px}
+.product-card{background:linear-gradient(145deg,rgba(22,37,80,.6),rgba(13,27,62,.4));border:1px solid rgba(240,192,64,.1);border-radius:12px;padding:32px 28px;position:relative;overflow:hidden;transition:all .4s;cursor:pointer}
+.product-card::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(240,192,64,.06),transparent 60%);opacity:0;transition:opacity .4s}
+.product-card:hover{border-color:rgba(240,192,64,.4);transform:translateY(-6px);box-shadow:0 20px 60px rgba(0,0,0,.4),0 0 40px rgba(240,192,64,.08)}
+.product-card:hover::before{opacity:1}
+.product-card::after{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--gold),transparent);transform:scaleX(0);transition:transform .4s}
+.product-card:hover::after{transform:scaleX(1)}
+.product-icon{font-size:2.8rem;margin-bottom:20px;display:block;filter:drop-shadow(0 4px 12px rgba(240,192,64,.3))}
+.product-category{font-size:.55rem;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--gold);margin-bottom:8px}
+.product-name{font-family:'Cinzel',serif;font-size:1.15rem;font-weight:700;color:var(--white);margin-bottom:10px}
+.product-desc{font-size:.82rem;line-height:1.7;color:var(--text-dim);margin-bottom:20px}
+.product-tags{display:flex;flex-wrap:wrap;gap:6px}
+.tag{font-size:.5rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--text-dim);border:1px solid rgba(200,216,240,.15);padding:4px 10px;border-radius:20px;background:rgba(255,255,255,.03)}
+.why-us{background:linear-gradient(135deg,rgba(13,27,62,.8),var(--dark));position:relative;overflow:hidden}
+.why-us::before{content:'';position:absolute;top:-50%;left:-20%;width:600px;height:600px;background:radial-gradient(circle,rgba(240,192,64,.05),transparent 70%);pointer-events:none}
+.why-grid{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
+.why-features{display:flex;flex-direction:column;gap:28px}
+.why-feature{display:flex;gap:20px;padding:24px;background:rgba(22,37,80,.3);border:1px solid rgba(240,192,64,.08);border-radius:10px;transition:all .3s}
+.why-feature:hover{border-color:rgba(240,192,64,.25);background:rgba(22,37,80,.5);transform:translateX(6px)}
+.why-icon{font-size:1.8rem;flex-shrink:0;margin-top:2px}
+.why-title{font-family:'Cinzel',serif;font-size:1rem;font-weight:600;color:var(--white);margin-bottom:6px}
+.why-text{font-size:.82rem;line-height:1.7;color:var(--text-dim)}
+.why-visual{position:relative;display:flex;align-items:center;justify-content:center}
+.why-logo{width:100%;max-width:360px;filter:drop-shadow(0 20px 60px rgba(240,192,64,.3));animation:logoFloat 6s ease-in-out infinite}
+.why-badge{position:absolute;background:linear-gradient(135deg,var(--navy),var(--navy-light));border:1px solid rgba(240,192,64,.3);border-radius:12px;padding:14px 18px;display:flex;flex-direction:column;box-shadow:0 10px 40px rgba(0,0,0,.4)}
+.why-badge-1{top:10%;right:-5%}
+.why-badge-2{bottom:15%;left:-5%}
+.badge-num{font-family:'Bebas Neue',sans-serif;font-size:1.8rem;color:var(--gold);line-height:1}
+.badge-text{font-size:.55rem;letter-spacing:1.5px;text-transform:uppercase;color:var(--text-dim);font-weight:600}
+.chemicals{background:var(--dark)}
+.chemicals-list{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:16px}
+.chem-item{background:rgba(22,37,80,.3);border:1px solid rgba(240,192,64,.08);border-radius:8px;padding:20px;display:flex;align-items:center;gap:14px;transition:all .3s}
+.chem-item:hover{border-color:rgba(240,192,64,.3);background:rgba(22,37,80,.5);transform:translateY(-3px)}
+.chem-dot{width:10px;height:10px;border-radius:50%;background:var(--gold);box-shadow:0 0 8px var(--gold);flex-shrink:0}
+.chem-name{font-size:.8rem;font-weight:600;color:var(--silver);letter-spacing:.5px}
+.contact{background:linear-gradient(180deg,var(--dark),rgba(13,27,62,.5))}
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:start}
+.contact-info{display:flex;flex-direction:column;gap:32px}
+.contact-item{display:flex;gap:20px;align-items:flex-start}
+.contact-icon-wrap{width:48px;height:48px;background:linear-gradient(135deg,var(--gold-dark),var(--gold));border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.2rem;flex-shrink:0;box-shadow:0 6px 20px rgba(240,192,64,.25)}
+.contact-item-title{font-family:'Cinzel',serif;font-size:.85rem;font-weight:600;color:var(--white);margin-bottom:4px}
+.contact-item-text{font-size:.82rem;color:var(--text-dim);line-height:1.6}
+.contact-item-text a{color:var(--gold);text-decoration:none;transition:color .2s}
+.contact-item-text a:hover{color:var(--gold-light)}
+.contact-form{background:rgba(22,37,80,.3);border:1px solid rgba(240,192,64,.1);border-radius:16px;padding:40px 36px}
+.form-title{font-family:'Cinzel',serif;font-size:1.3rem;color:var(--white);margin-bottom:28px}
+.form-group{margin-bottom:20px}
+.form-label{display:block;font-size:.62rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--gold);margin-bottom:8px}
+.form-input,.form-textarea{width:100%;background:rgba(13,27,62,.6);border:1px solid rgba(240,192,64,.15);border-radius:6px;padding:12px 16px;color:var(--white);font-family:'Raleway',sans-serif;font-size:.85rem;outline:none;transition:border-color .3s,box-shadow .3s}
+.form-input:focus,.form-textarea:focus{border-color:rgba(240,192,64,.5);box-shadow:0 0 0 3px rgba(240,192,64,.07)}
+.form-textarea{height:120px;resize:vertical}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+footer{background:rgba(6,10,20,.98);border-top:1px solid rgba(240,192,64,.1);padding:48px 5% 28px}
+.footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr;gap:48px;margin-bottom:40px}
+.footer-brand{display:flex;flex-direction:column;gap:16px}
+.footer-logo{display:flex;align-items:center;gap:12px}
+.footer-logo img{height:44px;filter:drop-shadow(0 0 6px rgba(240,192,64,.3))}
+.footer-logo-text{font-family:'Bebas Neue',sans-serif;font-size:1.2rem;color:var(--gold);letter-spacing:3px}
+.footer-about{font-size:.8rem;line-height:1.7;color:var(--text-dim);max-width:280px}
+.footer-col-title{font-family:'Cinzel',serif;font-size:.85rem;font-weight:600;color:var(--white);margin-bottom:16px;padding-bottom:10px;border-bottom:1px solid rgba(240,192,64,.15)}
+.footer-links{list-style:none;display:flex;flex-direction:column;gap:10px}
+.footer-links a{font-size:.78rem;color:var(--text-dim);text-decoration:none;transition:color .2s;display:flex;align-items:center;gap:6px}
+.footer-links a::before{content:'›';color:var(--gold)}
+.footer-links a:hover{color:var(--gold)}
+.footer-bottom{display:flex;justify-content:space-between;align-items:center;padding-top:24px;border-top:1px solid rgba(240,192,64,.07)}
+.footer-copy{font-size:.7rem;color:var(--text-dim);letter-spacing:.5px}
+.footer-motto{font-family:'Bebas Neue',sans-serif;font-size:.85rem;letter-spacing:4px;color:var(--gold);opacity:.6}
+.reveal{opacity:0;transform:translateY(40px);transition:opacity .7s ease,transform .7s ease}
+.reveal.visible{opacity:1;transform:translateY(0)}
+@media(max-width:900px){
+  .nav-links{display:none;flex-direction:column;position:fixed;top:72px;left:0;right:0;background:rgba(8,14,30,.99);padding:24px 5%;gap:20px;border-bottom:1px solid rgba(240,192,64,.1)}
+  .nav-links.open{display:flex}
+  .hamburger{display:flex}
+  .hero-content{grid-template-columns:1fr;text-align:center}
+  .hero-visual{display:none}
+  .hero-btns,.hero-stats{justify-content:center}
+  .why-grid,.contact-grid{grid-template-columns:1fr}
+  .why-visual{display:none}
+  .footer-grid{grid-template-columns:1fr;gap:28px}
+  .footer-bottom{flex-direction:column;gap:8px;text-align:center}
+  .form-row{grid-template-columns:1fr}
+  body{cursor:auto}
+  .cursor,.cursor-ring{display:none}
+}
+</style>
+</head>
+<body>
+<div class="cursor" id="cursor"></div>
+<div class="cursor-ring" id="cursorRing"></div>
+
+<nav id="navbar">
+  <a href="#home" class="nav-logo">
+    <img src="/mnt/user-data/uploads/1000126557.png" alt="Elgon Shine">
+    <div><span class="nav-brand">Elgon Shine</span><span class="nav-tagline">Shine Bright · Mbale City</span></div>
+  </a>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="#home">Home</a></li>
+    <li><a href="#products">Products</a></li>
+    <li><a href="#chemicals">Chemicals</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#contact" class="nav-cta">Contact Us</a></li>
+  </ul>
+  <div class="hamburger" id="hamburger"><span></span><span></span><span></span></div>
+</nav>
+
+<section class="hero" id="home">
+  <div class="hero-bg"></div>
+  <div class="hero-grid"></div>
+  <div class="orb orb-1"></div>
+  <div class="orb orb-2"></div>
+  <div class="orb orb-3"></div>
+  <div class="hero-content">
+    <div class="hero-text">
+      <div class="hero-eyebrow">Mbale City District, Uganda</div>
+      <h1 class="hero-title">Cleaning<br><span>Redefined.</span></h1>
+      <div class="hero-subtitle">Shine Bright Every Day</div>
+      <p class="hero-desc">Elgon Shine delivers premium detergents, disinfectants, specialty chemicals and hygiene solutions crafted for homes, businesses and industries across Mbale City and beyond.</p>
+      <div class="hero-btns">
+        <a href="#products" class="btn-primary">Explore Products</a>
+        <a href="#contact" class="btn-outline">Get in Touch</a>
+      </div>
+      <div class="hero-stats">
+        <div class="stat"><span class="stat-num">50+</span><span class="stat-label">Products</span></div>
+        <div class="stat"><span class="stat-num">100%</span><span class="stat-label">Quality</span></div>
+        <div class="stat"><span class="stat-num">5★</span><span class="stat-label">Rated</span></div>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div class="logo-stage">
+        <svg class="logo-ring" viewBox="0 0 400 400" style="position:absolute;inset:0;width:100%;height:100%">
+          <circle cx="200" cy="200" r="195" fill="none" stroke="rgba(240,192,64,.12)" stroke-width="1" stroke-dasharray="6 14"/>
+        </svg>
+        <div class="logo-glow"></div>
+        <img src="/mnt/user-data/uploads/1000126557.png" alt="Elgon Shine" class="logo-main">
+        <div class="orbit-dot" style="top:5%;left:50%;transform:translateX(-50%)"></div>
+        <div class="orbit-dot" style="bottom:5%;left:50%;transform:translateX(-50%)"></div>
+        <div class="orbit-dot" style="left:5%;top:50%;transform:translateY(-50%)"></div>
+        <div class="orbit-dot" style="right:5%;top:50%;transform:translateY(-50%)"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="marquee-wrap">
+  <div class="marquee-track" id="mtrack"></div>
+</div>
+
+<section class="products" id="products">
+  <div class="section-header reveal">
+    <div class="section-label">Our Products</div>
+    <h2 class="section-title">Premium <span>Cleaning</span> Solutions</h2>
+    <p class="section-desc">From everyday household cleaning to industrial-grade disinfection, Elgon Shine has a product for every need.</p>
+  </div>
+  <div class="products-grid">
+    <div class="product-card reveal"><span class="product-icon">🧴</span><div class="product-category">Hygiene</div><div class="product-name">Liquid Soap</div><p class="product-desc">Gentle antibacterial hand and body liquid soap with moisturizing agents. Available in multiple refreshing scents.</p><div class="product-tags"><span class="tag">Antibacterial</span><span class="tag">pH Balanced</span><span class="tag">Moisturizing</span></div></div>
+    <div class="product-card reveal"><span class="product-icon">🧪</span><div class="product-category">Disinfection</div><div class="product-name">Jik Bleach</div><p class="product-desc">Powerful chlorine-based bleach that kills 99.9% of germs, whitens fabrics and disinfects surfaces effectively.</p><div class="product-tags"><span class="tag">Kills 99.9% Germs</span><span class="tag">Whitening</span><span class="tag">Fast Action</span></div></div>
+    <div class="product-card reveal"><span class="product-icon">🐾</span><div class="product-category">Pet Care</div><div class="product-name">Pet Shampoo</div><p class="product-desc">Tear-free, dermatologist-tested shampoo for dogs and cats. Leaves coats shiny, soft and smelling fresh.</p><div class="product-tags"><span class="tag">Tear-Free</span><span class="tag">All Pets</span><span class="tag">Natural Extracts</span></div></div>
+    <div class="product-card reveal"><span class="product-icon">💇</span><div class="product-category">Personal Care</div><div class="product-name">Hair Shampoo</div><p class="product-desc">Nourishing formula with keratin and argan oil extracts. Strengthens hair, reduces breakage and boosts natural shine.</p><div class="product-tags"><span class="tag">Keratin Boost</span><span class="tag">Sulfate-Free</span><span class="tag">All Hair Types</span></div></div>
+    <div class="product-card reveal"><span class="product-icon">🧹</span><div class="product-category">Household</div><div class="product-name">Floor Cleaner</div><p class="product-desc">Multi-surface floor cleaner that cuts through grease and grime, leaving floors spotless with a lasting fresh scent.</p><div class="product-tags"><span class="tag">Multi-Surface</span><span class="tag">Degreaser</span><span class="tag">Long-Lasting</span></div></div>
+    <div class="product-card reveal"><span class="product-icon">🫧</span><div class="product-category">Laundry</div><div class="product-name">Laundry Detergent</div><p class="product-desc">High-performance washing powder and liquid that tackles tough stains, protecting fabric colors and softness.</p><div class="product-tags"><span class="tag">Stain Fighter</span><span class="tag">Color Safe</span><span class="tag">Cold & Hot Water</span></div></div>
+    <div class="product-card reveal"><span class="product-icon">🚿</span><div class="product-category">Sanitation</div><div class="product-name">Toilet Cleaner</div><p class="product-desc">Thick gel formula that clings to surfaces, dissolving limescale and eliminating odors with powerful disinfection.</p><div class="product-tags"><span class="tag">Thick Gel</span><span class="tag">Limescale</span><span class="tag">Odor Eliminator</span></div></div>
+    <div class="product-card reveal"><span class="product-icon">🖐️</span><div class="product-category">Hygiene</div><div class="product-name">Hand Sanitizer</div><p class="product-desc">70% alcohol-based hand sanitizer that provides instant germ protection without drying out your skin.</p><div class="product-tags"><span class="tag">70% Alcohol</span><span class="tag">Instant Action</span><span class="tag">Skin-Friendly</span></div></div>
+  </div>
+</section>
+
+<section class="why-us" id="about">
+  <div class="why-grid">
+    <div>
+      <div class="section-header reveal">
+        <div class="section-label">Why Elgon Shine</div>
+        <h2 class="section-title">Trusted Quality.<br><span>Every Time.</span></h2>
+        <p class="section-desc">Built on the principles of quality, affordability and community trust — Elgon Shine is Mbale's premier cleaning brand.</p>
+      </div>
+      <div class="why-features">
+        <div class="why-feature reveal"><span class="why-icon">🏆</span><div><div class="why-title">Premium Quality Ingredients</div><p class="why-text">Every product is formulated with the highest grade raw materials, rigorously tested to meet international hygiene and safety standards.</p></div></div>
+        <div class="why-feature reveal"><span class="why-icon">💰</span><div><div class="why-title">Affordable for Everyone</div><p class="why-text">We believe clean living should be accessible. Our pricing ensures households and businesses of all sizes can afford the best.</p></div></div>
+        <div class="why-feature reveal"><span class="why-icon">🌿</span><div><div class="why-title">Environmentally Conscious</div><p class="why-text">Our formulas are designed to be effective while minimizing environmental impact — biodegradable where possible.</p></div></div>
+        <div class="why-feature reveal"><span class="why-icon">🚚</span><div><div class="why-title">Fast Local Delivery</div><p class="why-text">Based right here in Mbale City District, we offer swift delivery across the region so you never run out of supplies.</p></div></div>
+      </div>
+    </div>
+    <div class="why-visual">
+      <img src="/mnt/user-data/uploads/1000126557.png" alt="Elgon Shine" class="why-logo">
+      <div class="why-badge why-badge-1"><span class="badge-num">50+</span><span class="badge-text">Products</span></div>
+      <div class="why-badge why-badge-2"><span class="badge-num">Mbale</span><span class="badge-text">City Based</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="chemicals" id="chemicals">
+  <div class="section-header reveal">
+    <div class="section-label">Specialty Chemicals</div>
+    <h2 class="section-title">Industrial &amp; <span>Specialty</span> Range</h2>
+    <p class="section-desc">Beyond household products, we supply raw chemicals and specialty compounds for manufacturers, distributors and industrial clients.</p>
+  </div>
+  <div class="chemicals-list reveal">
+    <div class="chem-item"><div class="chem-dot"></div><span class="chem-name">Menthol Crystal</span></div>
+    <div class="chem-item"><div class="chem-dot"></div><span class="chem-name">Sodium Hypochlorite</span></div>
+    <div class="chem-item"><div class="chem-dot"></div><span class="chem-name">Caustic Soda (NaOH)</span></div>
+    <div class="chem-item"><div class="chem-dot"></div><span class="chem-name">Citric Acid</span></div>
+    <div class="chem-item"><div class="chem-dot"></div><span class="chem-name">Hydrogen Peroxide</span></div>
+    <div class="chem-item"><div class="chem-dot"></div><span class="chem-name">Glycerin (Glycerol)</span></div>
+    <div class="chem-item"><div class="chem-dot"></div><span class="chem-name">Isopropyl Alcohol</span></div>
+    <div class="chem-item"><div class="chem-dot"></div><span class="chem-name">Sodium Lauryl Sulfate</span></div>
+    <div class="chem-item"><div class="chem-dot"></div><span class="chem-name">Fragrance Oils</span></div>
+    <div class="chem-item"><div class="chem-dot"></div><span class="chem-name">Potassium Permanganate</span></div>
+    <div class="chem-item"><div class="chem-dot"></div><span class="chem-name">Formaldehyde Solution</span></div>
+    <div class="chem-item"><div class="chem-dot"></div><span class="chem-name">EDTA (Chelating Agent)</span></div>
+    <div class="chem-item"><div class="chem-dot"></div><span class="chem-name">Borax</span></div>
+    <div class="chem-item"><div class="chem-dot"></div><span class="chem-name">Acetic Acid</span></div>
+    <div class="chem-item"><div class="chem-dot"></div><span class="chem-name">Carbomer Gel Agent</span></div>
+    <div class="chem-item"><div class="chem-dot"></div><span class="chem-name">Color Dyes & Pigments</span></div>
+  </div>
+</section>
+
+<section class="contact" id="contact">
+  <div class="section-header reveal" style="text-align:center;max-width:600px;margin:0 auto 60px">
+    <div class="section-label" style="justify-content:center">Get In Touch</div>
+    <h2 class="section-title">Let's <span>Shine</span> Together</h2>
+    <p class="section-desc" style="margin:0 auto">Have questions about our products? Need a bulk order quote? We'd love to hear from you.</p>
+  </div>
+  <div class="contact-grid">
+    <div class="contact-info reveal">
+      <div class="contact-item"><div class="contact-icon-wrap">📍</div><div><div class="contact-item-title">Our Location</div><div class="contact-item-text">Mbale City District, Eastern Uganda<br>East Africa</div></div></div>
+      <div class="contact-item"><div class="contact-icon-wrap">✉️</div><div><div class="contact-item-title">Email Us</div><div class="contact-item-text"><a href="mailto:elgonshinembale@gmail.com">elgonshinembale@gmail.com</a></div></div></div>
+      <div class="contact-item"><div class="contact-icon-wrap">🕐</div><div><div class="contact-item-title">Business Hours</div><div class="contact-item-text">Monday – Saturday: 8:00 AM – 6:00 PM<br>Sunday: 10:00 AM – 4:00 PM</div></div></div>
+      <div class="contact-item"><div class="contact-icon-wrap">📦</div><div><div class="contact-item-title">Bulk Orders</div><div class="contact-item-text">We offer wholesale pricing for large orders. Contact us for a custom quote tailored to your business needs.</div></div></div>
+    </div>
+    <div class="contact-form reveal">
+      <div class="form-title">Send a Message</div>
+      <div class="form-row">
+        <div class="form-group"><label class="form-label">First Name</label><input type="text" class="form-input" placeholder="John"></div>
+        <div class="form-group"><label class="form-label">Last Name</label><input type="text" class="form-input" placeholder="Doe"></div>
+      </div>
+      <div class="form-group"><label class="form-label">Email Address</label><input type="email" class="form-input" placeholder="you@example.com"></div>
+      <div class="form-group"><label class="form-label">Subject</label><input type="text" class="form-input" placeholder="Product enquiry / Bulk order"></div>
+      <div class="form-group"><label class="form-label">Message</label><textarea class="form-textarea" placeholder="Tell us what you need..."></textarea></div>
+      <button class="btn-primary" style="width:100%;font-size:.8rem" onclick="handleSubmit()">Send Message →</button>
+      <div id="form-success" style="display:none;margin-top:14px;color:#6dffaa;font-size:.8rem;text-align:center;font-weight:600">✓ Message sent! We'll be in touch shortly.</div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <div class="footer-logo"><img src="/mnt/user-data/uploads/1000126557.png" alt="Elgon Shine"><span class="footer-logo-text">Elgon Shine</span></div>
+      <p class="footer-about">Mbale City's leading supplier of premium detergents, hygiene products and specialty chemicals. Committed to cleanliness, quality and community.</p>
+    </div>
+    <div>
+      <div class="footer-col-title">Quick Links</div>
+      <ul class="footer-links">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#products">Products</a></li>
+        <li><a href="#chemicals">Chemicals</a></li>
+        <li><a href="#about">About Us</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="footer-col-title">Contact</div>
+      <ul class="footer-links">
+        <li><a href="mailto:elgonshinembale@gmail.com">elgonshinembale@gmail.com</a></li>
+        <li><a href="#contact">Mbale City District</a></li>
+        <li><a href="#contact">Eastern Uganda</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span class="footer-copy">© 2025 Elgon Shine. All rights reserved.</span>
+    <span class="footer-motto">Shine Bright · Always</span>
+  </div>
+</footer>
+
+<script>
+// Marquee
+const items = ['Liquid Soap','Jik Bleach','Pet Shampoo','Hair Shampoo','Menthol Crystal','Disinfectants','Floor Cleaners','Laundry Detergent','Toilet Cleaners','Hand Sanitizer'];
+const track = document.getElementById('mtrack');
+[...items,...items].forEach(t => {
+  const d = document.createElement('div'); d.className = 'marquee-item';
+  d.innerHTML = t + '<span class="marquee-dot"></span>';
+  track.appendChild(d);
+});
+
+// Custom cursor
+const cursor = document.getElementById('cursor');
+const ring = document.getElementById('cursorRing');
+let mx=0,my=0,rx=0,ry=0;
+document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;cursor.style.transform=`translate(${mx-6}px,${my-6}px)`;});
+(function animateRing(){rx+=(mx-rx)*.12;ry+=(my-ry)*.12;ring.style.transform=`translate(${rx-18}px,${ry-18}px)`;requestAnimationFrame(animateRing);})();
+document.querySelectorAll('a,button,.product-card,.why-feature,.chem-item').forEach(el=>{
+  el.addEventListener('mouseenter',()=>{cursor.style.width='20px';cursor.style.height='20px';ring.style.width='50px';ring.style.height='50px';});
+  el.addEventListener('mouseleave',()=>{cursor.style.width='12px';cursor.style.height='12px';ring.style.width='36px';ring.style.height='36px';});
+});
+
+// Navbar scroll
+window.addEventListener('scroll',()=>document.getElementById('navbar').classList.toggle('scrolled',window.scrollY>40));
+
+// Hamburger
+document.getElementById('hamburger').addEventListener('click',()=>document.getElementById('navLinks').classList.toggle('open'));
+
+// Scroll reveal
+const obs = new IntersectionObserver((entries)=>{
+  entries.forEach((e,i)=>{ if(e.isIntersecting) setTimeout(()=>e.target.classList.add('visible'),i*80); });
+},{threshold:.1});
+document.querySelectorAll('.reveal').forEach(r=>obs.observe(r));
+
+// Form
+function handleSubmit(){
+  const s=document.getElementById('form-success');
+  s.style.display='block';
+  setTimeout(()=>s.style.display='none',5000);
+}
+</script>
+</body>
+</html>
